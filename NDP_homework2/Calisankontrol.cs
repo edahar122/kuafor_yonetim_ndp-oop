@@ -51,6 +51,7 @@ namespace NDP_homework2 {
                 dataGridView2.DataSource = null;
                 calisanlar.Remove(calisan);
                 dataGridView2.DataSource = calisanlar;
+                
             }
             else {
                 MessageBox.Show("Böyle bir çalışan bulunmamaktadır!");
@@ -66,14 +67,13 @@ namespace NDP_homework2 {
 
             if (calisan != null) {
                 dataGridView2.DataSource = null;
-
-                if (textBox2.Text != null) {
+                if (textBox2.Text != "") {
                     calisan.Ad = textBox2.Text;
                 }
-                if (textBox3.Text != null) {
+                if (textBox3.Text != "") {
                     calisan.Soyad = textBox3.Text;
                 }
-                if (textBox4.Text != null) {
+                if (textBox4.Text != "") {
                     calisan.Phone = textBox4.Text;
                 }
 
@@ -84,6 +84,14 @@ namespace NDP_homework2 {
             else {
                 MessageBox.Show("Böyle bir çalışan bulunmamaktadır!");
             }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e) {
+
         }
     }
 }

@@ -43,14 +43,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.çalışanlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.çalışanEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.çalışanÇıkarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.çalışanlarıGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.randevularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.randevuDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.randevuKaldırToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.çalışanEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.çalışanÇıkarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.çalışanlarıGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.çalışanlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -244,42 +244,19 @@
             this.randevularToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(801, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(801, 28);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // randevularToolStripMenuItem
+            // çalışanlarToolStripMenuItem
             // 
-            this.randevularToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.randevuDüzenleToolStripMenuItem,
-            this.randevuKaldırToolStripMenuItem});
-            this.randevularToolStripMenuItem.Name = "randevularToolStripMenuItem";
-            this.randevularToolStripMenuItem.Size = new System.Drawing.Size(97, 26);
-            this.randevularToolStripMenuItem.Text = "Randevular";
-            // 
-            // randevuDüzenleToolStripMenuItem
-            // 
-            this.randevuDüzenleToolStripMenuItem.Name = "randevuDüzenleToolStripMenuItem";
-            this.randevuDüzenleToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            this.randevuDüzenleToolStripMenuItem.Text = "Randevu Düzenle";
-            this.randevuDüzenleToolStripMenuItem.Click += new System.EventHandler(this.randevuDüzenleToolStripMenuItem_Click);
-            // 
-            // randevuKaldırToolStripMenuItem
-            // 
-            this.randevuKaldırToolStripMenuItem.Name = "randevuKaldırToolStripMenuItem";
-            this.randevuKaldırToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            this.randevuKaldırToolStripMenuItem.Text = "Randevu Kaldır";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeight = 35;
-            this.dataGridView1.Location = new System.Drawing.Point(279, 65);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(510, 332);
-            this.dataGridView1.TabIndex = 50;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.çalışanlarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.çalışanEkleToolStripMenuItem,
+            this.çalışanÇıkarToolStripMenuItem,
+            this.çalışanlarıGüncelleToolStripMenuItem});
+            this.çalışanlarToolStripMenuItem.Name = "çalışanlarToolStripMenuItem";
+            this.çalışanlarToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
+            this.çalışanlarToolStripMenuItem.Text = "Çalışanlar";
             // 
             // çalışanEkleToolStripMenuItem
             // 
@@ -302,15 +279,39 @@
             this.çalışanlarıGüncelleToolStripMenuItem.Text = "Çalışanları Güncelle";
             this.çalışanlarıGüncelleToolStripMenuItem.Click += new System.EventHandler(this.çalışanlarıGüncelleToolStripMenuItem_Click);
             // 
-            // çalışanlarToolStripMenuItem
+            // randevularToolStripMenuItem
             // 
-            this.çalışanlarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.çalışanEkleToolStripMenuItem,
-            this.çalışanÇıkarToolStripMenuItem,
-            this.çalışanlarıGüncelleToolStripMenuItem});
-            this.çalışanlarToolStripMenuItem.Name = "çalışanlarToolStripMenuItem";
-            this.çalışanlarToolStripMenuItem.Size = new System.Drawing.Size(87, 26);
-            this.çalışanlarToolStripMenuItem.Text = "Çalışanlar";
+            this.randevularToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.randevuDüzenleToolStripMenuItem,
+            this.randevuKaldırToolStripMenuItem});
+            this.randevularToolStripMenuItem.Name = "randevularToolStripMenuItem";
+            this.randevularToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.randevularToolStripMenuItem.Text = "Randevular";
+            // 
+            // randevuDüzenleToolStripMenuItem
+            // 
+            this.randevuDüzenleToolStripMenuItem.Name = "randevuDüzenleToolStripMenuItem";
+            this.randevuDüzenleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.randevuDüzenleToolStripMenuItem.Text = "Randevu Düzenle";
+            this.randevuDüzenleToolStripMenuItem.Click += new System.EventHandler(this.randevuDüzenleToolStripMenuItem_Click);
+            // 
+            // randevuKaldırToolStripMenuItem
+            // 
+            this.randevuKaldırToolStripMenuItem.Name = "randevuKaldırToolStripMenuItem";
+            this.randevuKaldırToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.randevuKaldırToolStripMenuItem.Text = "Randevu Kaldır";
+            this.randevuKaldırToolStripMenuItem.Click += new System.EventHandler(this.randevuKaldırToolStripMenuItem_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeight = 35;
+            this.dataGridView1.Location = new System.Drawing.Point(279, 65);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(510, 332);
+            this.dataGridView1.TabIndex = 50;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label9
             // 
@@ -338,7 +339,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(801, 476);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label9);

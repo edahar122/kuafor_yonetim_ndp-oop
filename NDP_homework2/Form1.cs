@@ -12,24 +12,11 @@ namespace NDP_homework2 {
 
         public Form1() {
             InitializeComponent();
-
-            //dataGridView1.DataSource = randevular;
             checkBox3.Enabled = false;
             checkBox4.Enabled = false;
             comboBox1.Enabled = false;
+            dateTimePicker1.MinDate = DateTime.Today;
             comboBox2.DataSource = calisan_isimleri;
-        }
-
-        abstract class Work {
-            public String tarih { get; set; }
-            public int ucret { get; set; }
-            public string hizmet { get; set; }
-        }
-
-        class Randevu : Work {
-            public String müşteri { get; set; }
-            public String müşteri_ulaşım { get; set; }
-            public String calisan { get; set; }
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -43,22 +30,23 @@ namespace NDP_homework2 {
 
             randevu.müşteri = müşteri.Ad + " " + müşteri.Soyad;
             randevu.müşteri_ulaşım = müşteri.Phone;
+            randevu.calisan = calisanlar[comboBox2.SelectedIndex].Ad + " " + calisanlar[comboBox2.SelectedIndex].Soyad;
 
             if (checkBox1.Checked) {
                 randevu.ucret += 100;
-                randevu.hizmet += " " + checkBox1.Text;
+                randevu.hizmet += " " + checkBox1.Text + "(100TL)";
             }
             if (checkBox2.Checked) {
                 randevu.ucret += 30;
-                randevu.hizmet += " " + checkBox2.Text;
+                randevu.hizmet += " " + checkBox2.Text + "(30TL)";
             }
             if (checkBox3.Checked) {
                 randevu.ucret += 20;
-                randevu.hizmet += " " + checkBox3.Text;
+                randevu.hizmet += " " + checkBox3.Text + "(20TL)";
             }
             if (checkBox4.Checked) {
                 randevu.ucret += 15;
-                randevu.hizmet += " " + checkBox4.Text;
+                randevu.hizmet += " " + checkBox4.Text + "(15TL)";
             }
 
             randevu.tarih = dateTimePicker1.Text + " " + comboBox1.Text;
@@ -68,12 +56,6 @@ namespace NDP_homework2 {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = randevular;
 
-            /*listBox1.Items.Add(randevu.müşteri.Ad + " "
-                + randevu.müşteri.Soyad + " -- "
-                + randevu.hizmetler + " -- "
-                + randevu.müşteri.Phone + " -- "
-                + randevu.tarih + " -- Toplam ücret: \n"
-                + randevu.ucret);*/
         }
 
         private bool kontrol() {
@@ -137,6 +119,33 @@ namespace NDP_homework2 {
             }
         }
 
+        private void çalışanÇıkarToolStripMenuItem_Click(object sender, EventArgs e) {
+            Calisankontrol kontrol = new Calisankontrol(calisanlar, true);
+            kontrol.ShowDialog();
+            calisan_isimleri_guncelle();
+            comboBox2.DataSource = null;
+            comboBox2.DataSource = calisan_isimleri;
+        }
+
+        private void çalışanlarıGüncelleToolStripMenuItem_Click(object sender, EventArgs e) {
+            Calisankontrol kontrol = new Calisankontrol(calisanlar, false);
+            kontrol.ShowDialog();
+            comboBox2.DataSource = null;
+            comboBox2.DataSource = calisan_isimleri;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) {
+            // comboBox1'deki seçili öğeyi kontrol et
+            if (comboBox2.SelectedItem != null) {
+                // Eğer seçili bir öğe varsa, comboBox2'yi etkinleştir
+                comboBox1.Enabled = true;
+            }
+            else {
+                // Seçili bir öğe yoksa, comboBox2'yi devre dışı bırak
+                comboBox1.Enabled = false;
+            }
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) {
 
         }
@@ -168,33 +177,13 @@ namespace NDP_homework2 {
 
         }
         private void randevuDüzenleToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            Randevu_duzenle duzenle = new Randevu_duzenle(randevular, false);
+            duzenle.ShowDialog();
         }
 
-        private void çalışanÇıkarToolStripMenuItem_Click(object sender, EventArgs e) {
-            Calisankontrol kontrol = new Calisankontrol(calisanlar, true);
-            kontrol.ShowDialog();
-            comboBox2.DataSource = null;
-            comboBox2.DataSource = calisan_isimleri;
-        }
-
-        private void çalışanlarıGüncelleToolStripMenuItem_Click(object sender, EventArgs e) {
-            Calisankontrol kontrol = new Calisankontrol(calisanlar, false);
-            kontrol.ShowDialog();
-            comboBox2.DataSource = null;
-            comboBox2.DataSource = calisan_isimleri;
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) {
-            // comboBox1'deki seçili öğeyi kontrol et
-            if (comboBox2.SelectedItem != null) {
-                // Eğer seçili bir öğe varsa, comboBox2'yi etkinleştir
-                comboBox1.Enabled = true;
-            }
-            else {
-                // Seçili bir öğe yoksa, comboBox2'yi devre dışı bırak
-                comboBox1.Enabled = false;
-            }
+        private void randevuKaldırToolStripMenuItem_Click(object sender, EventArgs e) {
+            Randevu_duzenle duzenle = new Randevu_duzenle(randevular, true);
+            duzenle.ShowDialog();
         }
     }
 }
