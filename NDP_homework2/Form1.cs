@@ -1,4 +1,16 @@
-﻿using System;
+﻿/****************************************************************************
+**					SAKARYA ÜNİVERSİTESİ
+**				BİLGİSAYAR VE BİLİŞİM BİLİMLERİ FAKÜLTESİ
+**				    BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ
+**				   NESNEYE DAYALI PROGRAMLAMA DERSİ
+**					2023-2024 BAHAR DÖNEMİ
+**	
+**				ÖDEV NUMARASI..........:3 PROJE
+**				ÖĞRENCİ ADI............:SERHAT HAR
+**				ÖĞRENCİ NUMARASI.......:G231210040
+**              DERSİN ALINDIĞI GRUP...:2A
+****************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -179,11 +191,15 @@ namespace NDP_homework2 {
         private void randevuDüzenleToolStripMenuItem_Click(object sender, EventArgs e) {
             Randevu_duzenle duzenle = new Randevu_duzenle(randevular, false);
             duzenle.ShowDialog();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = randevular;
         }
 
         private void randevuKaldırToolStripMenuItem_Click(object sender, EventArgs e) {
             Randevu_duzenle duzenle = new Randevu_duzenle(randevular, true);
             duzenle.ShowDialog();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = randevular;
         }
     }
 }
