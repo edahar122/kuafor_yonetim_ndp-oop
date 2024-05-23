@@ -19,7 +19,7 @@ namespace NDP_homework2 {
         List<Randevu> randevular1;
         public Randevu_duzenle(List<Randevu> randevular, Boolean isDelete) {
             InitializeComponent();
-            if (isDelete.Equals(true)) {
+            if (isDelete.Equals(true)) {//randevu duzenleme ve silme hangisi seçildiyse ona uygun şekilde formu yukleyen fonksiyon
                 label1.Visible = false;
                 label2.Visible = false;
                 label3.Visible = false;
@@ -54,7 +54,7 @@ namespace NDP_homework2 {
             dateTimePicker1.MinDate = DateTime.Today;
         }
 
-        public Randevu randevuAra(String id) {
+        public Randevu randevuAra(String id) {//randevu arama foksiyonu
             foreach (Randevu randevu in randevular1) {
                 if (randevu.WorkID.ToString().Equals(id)) {
                     return randevu;
@@ -63,7 +63,7 @@ namespace NDP_homework2 {
             return null;
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void button1_Click(object sender, EventArgs e) {//randevu guncelleme fonksiyonu
             Randevu randevu = randevuAra(textBox4.Text);
 
             if (checkBox1.Checked || checkBox2.Checked || checkBox3.Checked || checkBox4.Checked) {
@@ -80,7 +80,7 @@ namespace NDP_homework2 {
                     String soyad = textBox3.Text;
                     randevu.müşteri = textBox1.Text + " " + soyad;
                 }
-                if (textBox1.Text == "" && textBox3.Text != "") {
+                if (textBox1.Text == "" && textBox3.Text != "") {//seçilen değerler ile randevular guncelleniyor
                     String isim = textBox1.Text;
                     randevu.müşteri = isim + " " + textBox3.Text;
                 }

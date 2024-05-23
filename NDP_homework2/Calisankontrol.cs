@@ -19,16 +19,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//calısan ekleme ve silme geldi, düzenleme eklenecek. ayrıca randevular için de silme ve düzenleme gelecek. bundan sonra da testler yapılır
-//buglar fixlenir, gerekirse ekstra kontrol mekanizmalarıyla buglar önlenir
 
 namespace NDP_homework2 {
     public partial class Calisankontrol : Form {
         List<Calisan> calisanlar;
 
-        public Calisankontrol(List<Calisan> calisanlar, Boolean isDelete) {
+        public Calisankontrol(List<Calisan> calisanlar, Boolean isDelete) {//calisan kontrol form uygulamasını yukleyen fonksiyon
             InitializeComponent();
-            if (isDelete.Equals(true)) {
+            if (isDelete.Equals(true)) {//calisan silme veya calisan düzenleme hangi işlem için ise ona uygun form yukleniyor
                 button2.Visible = false;
                 label3.Visible = false;
                 label4.Visible = false;
@@ -38,16 +36,16 @@ namespace NDP_homework2 {
                 textBox3.Visible = false;
                 textBox4.Visible = false;
             }
-            else if (isDelete.Equals(false)){
+            else if (isDelete.Equals(false)) {
                 button1.Visible = false;
             }
-            
+
             dataGridView2.DataSource = null;
             this.calisanlar = calisanlar;
             dataGridView2.DataSource = calisanlar;
         }
 
-        public Calisan CalisanAra(String id) {
+        public Calisan CalisanAra(String id) {//ID ile çalısan arama fonksiyonu
             foreach (Calisan calisan in calisanlar) {
                 if (calisan.CalisanID.ToString().Equals(id)) {
                     return calisan;
@@ -56,14 +54,14 @@ namespace NDP_homework2 {
             return null;
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void button1_Click(object sender, EventArgs e) {//calisan silme fonksiyonu
             Calisan calisan = CalisanAra(textBox1.Text);
 
             if (calisan != null) {
                 dataGridView2.DataSource = null;
                 calisanlar.Remove(calisan);
                 dataGridView2.DataSource = calisanlar;
-                
+
             }
             else {
                 MessageBox.Show("Böyle bir çalışan bulunmamaktadır!");
@@ -74,7 +72,7 @@ namespace NDP_homework2 {
 
         }
 
-        private void button2_Click(object sender, EventArgs e) {
+        private void button2_Click(object sender, EventArgs e) {//calisan guncelleme fonksiyonu
             Calisan calisan = CalisanAra(textBox1.Text);
 
             if (calisan != null) {
@@ -104,6 +102,10 @@ namespace NDP_homework2 {
 
         private void textBox1_TextChanged(object sender, EventArgs e) {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

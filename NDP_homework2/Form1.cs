@@ -17,13 +17,13 @@ using System.Windows.Forms;
 namespace NDP_homework2 {
     public partial class Form1 : Form {
 
-        List<Randevu> randevular = new List<Randevu>();
+        List<Randevu> randevular = new List<Randevu>();//verileri kaydetmek için kullandığım diziler
         List<Müşteri> müşteriler = new List<Müşteri>();
         List<Calisan> calisanlar = new List<Calisan>();
         List<String> calisan_isimleri = new List<String>();
 
         public Form1() {
-            InitializeComponent();
+            InitializeComponent();//yıkama ve parfum devre dışı başlıyor
             checkBox3.Enabled = false;
             checkBox4.Enabled = false;
             comboBox1.Enabled = false;
@@ -33,11 +33,11 @@ namespace NDP_homework2 {
 
         private void button1_Click(object sender, EventArgs e) {
 
-            Randevu randevu = new Randevu();
+            Randevu randevu = new Randevu();//randevu ekle butonuna basıldığında yeni nesneler oluşturuluyor.
             Müşteri müşteri = new Müşteri();
 
             müşteri.Ad = textBox1.Text;
-            müşteri.Soyad = textBox2.Text;
+            müşteri.Soyad = textBox2.Text;//veriler nesnelere yerleştiriliyor
             müşteri.Phone = textBox3.Text;
 
             randevu.müşteri = müşteri.Ad + " " + müşteri.Soyad;
@@ -68,9 +68,17 @@ namespace NDP_homework2 {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = randevular;
 
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            checkBox4.Checked = false;
+
         }
 
-        private bool kontrol() {
+        private bool kontrol() {//checkbox 1'in işaretlenme işaretlenmeme durumunu kontrol ediyor.
             if (checkBox1.Checked) {
                 return true;
             }
@@ -79,18 +87,36 @@ namespace NDP_homework2 {
             }
         }
 
-        private void çalışanEkleToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void çalışanEkleToolStripMenuItem_Click(object sender, EventArgs e) {//calisan ekleme fonksiyonu
             Calisan calisan = new Calisan();
+            bool varmi = false;
             Calisan_ekle calisan_Ekle = new Calisan_ekle(calisan);
             calisan_Ekle.ShowDialog();
-            calisanlar.Add(calisan);
-            calisan_isimleri.Add(calisan.Ad + " " + calisan.Soyad);
-            comboBox2.DataSource = null;
-            comboBox2.DataSource = calisan_isimleri;
+
+            foreach (Calisan calisan1 in calisanlar) {
+                if (calisan1.Phone == calisan.Phone) {
+                    MessageBox.Show("Bu telefon numarasına sahip bir çalısan var!" + calisanlar.Count);
+                    varmi = true;
+                    break;
+                }
+            }
+
+            if (varmi == false) {
+                if (calisan.Phone.Length < 10) {
+                    MessageBox.Show("telefon numarası bu kadar kısa olamaz" + calisan.Phone.Length);
+                }
+                MessageBox.Show("Calisan eklendi!");
+                calisanlar.Add(calisan);
+                calisan_isimleri.Add(calisan.Ad + " " + calisan.Soyad);
+                comboBox2.DataSource = null;
+                comboBox2.DataSource = calisan_isimleri;
+                MessageBox.Show(" " + calisanlar.Count);
+            }
         }
 
-        private void calisan_isimleri_guncelle() {
-            calisan_isimleri = null;
+
+        private void calisan_isimleri_guncelle() {//calisan isimleri guncellendiginde DB fetch yapan fonksiyon
+            calisan_isimleri = new List<String>();
             foreach (Calisan eleman in calisanlar) {
                 calisan_isimleri.Add(eleman.Ad + " " + eleman.Soyad);
             }//dictionary kullan böyle olmaz
@@ -131,15 +157,15 @@ namespace NDP_homework2 {
             }
         }
 
-        private void çalışanÇıkarToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void çalışanÇıkarToolStripMenuItem_Click(object sender, EventArgs e) {//calisan silme fonksiyonu
             Calisankontrol kontrol = new Calisankontrol(calisanlar, true);
             kontrol.ShowDialog();
-            calisan_isimleri_guncelle();
             comboBox2.DataSource = null;
             comboBox2.DataSource = calisan_isimleri;
+            calisan_isimleri_guncelle();
         }
 
-        private void çalışanlarıGüncelleToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void çalışanlarıGüncelleToolStripMenuItem_Click(object sender, EventArgs e) {//calisan guncelleme fonksiyonu
             Calisankontrol kontrol = new Calisankontrol(calisanlar, false);
             kontrol.ShowDialog();
             comboBox2.DataSource = null;
@@ -200,6 +226,10 @@ namespace NDP_homework2 {
             duzenle.ShowDialog();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = randevular;
+        }
+
+        private void label10_Click(object sender, EventArgs e) {
+
         }
     }
 }

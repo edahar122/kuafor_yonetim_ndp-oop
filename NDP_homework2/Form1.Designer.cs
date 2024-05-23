@@ -291,14 +291,14 @@
             // randevuDüzenleToolStripMenuItem
             // 
             this.randevuDüzenleToolStripMenuItem.Name = "randevuDüzenleToolStripMenuItem";
-            this.randevuDüzenleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.randevuDüzenleToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.randevuDüzenleToolStripMenuItem.Text = "Randevu Düzenle";
             this.randevuDüzenleToolStripMenuItem.Click += new System.EventHandler(this.randevuDüzenleToolStripMenuItem_Click);
             // 
             // randevuKaldırToolStripMenuItem
             // 
             this.randevuKaldırToolStripMenuItem.Name = "randevuKaldırToolStripMenuItem";
-            this.randevuKaldırToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.randevuKaldırToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.randevuKaldırToolStripMenuItem.Text = "Randevu Kaldır";
             this.randevuKaldırToolStripMenuItem.Click += new System.EventHandler(this.randevuKaldırToolStripMenuItem_Click);
             // 
