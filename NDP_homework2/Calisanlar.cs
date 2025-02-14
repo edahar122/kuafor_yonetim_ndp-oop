@@ -1,17 +1,4 @@
-﻿/****************************************************************************
-**					SAKARYA ÜNİVERSİTESİ
-**				BİLGİSAYAR VE BİLİŞİM BİLİMLERİ FAKÜLTESİ
-**				    BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ
-**				   NESNEYE DAYALI PROGRAMLAMA DERSİ
-**					2023-2024 BAHAR DÖNEMİ
-**	
-**				ÖDEV NUMARASI..........:3 PROJE
-**				ÖĞRENCİ ADI............:SERHAT HAR
-**				ÖĞRENCİ NUMARASI.......:G231210040
-**              DERSİN ALINDIĞI GRUP...:2A
-****************************************************************************/
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace NDP_homework2 {
 

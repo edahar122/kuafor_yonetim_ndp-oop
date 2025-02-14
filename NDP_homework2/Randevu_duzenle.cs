@@ -1,16 +1,4 @@
-﻿/****************************************************************************
-**					SAKARYA ÜNİVERSİTESİ
-**				BİLGİSAYAR VE BİLİŞİM BİLİMLERİ FAKÜLTESİ
-**				    BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ
-**				   NESNEYE DAYALI PROGRAMLAMA DERSİ
-**					2023-2024 BAHAR DÖNEMİ
-**	
-**				ÖDEV NUMARASI..........:3 PROJE
-**				ÖĞRENCİ ADI............:SERHAT HAR
-**				ÖĞRENCİ NUMARASI.......:G231210040
-**              DERSİN ALINDIĞI GRUP...:2A
-****************************************************************************/
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -115,16 +103,6 @@ namespace NDP_homework2 {
             else {
                 MessageBox.Show("Boyle bir randevu bulunmamaktadır");
             }
-
-            /*if (randevu != null) {
-                dataGridView2.DataSource = null;
-                randevular1.Remove(randevu);
-                dataGridView2.DataSource = randevular1;
-
-            }
-            else {
-                MessageBox.Show("Böyle bir randevu bulunmamaktadır!");
-            }*///silme bu
         }
 
         private void Randevu_duzenle_Load(object sender, EventArgs e) {
